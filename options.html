@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>アクセス許可時間 設定</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        input[type="text"],
+        input[type="time"] {
+            width: 200px;
+            padding: 5px;
+            margin-right: 10px;
+        }
+        button {
+            padding: 5px 10px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 5px 0;
+        }
+        li span {
+            margin-right: 10px;
+        }
+        li button {
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        li button.edit-btn {
+            background-color: #4CAF50; /* 緑色 */
+        }
+        li button.delete-btn {
+            background-color: #f44336; /* 赤色 */
+        }
+        li button:hover {
+            opacity: 0.8;
+        }
+        label {
+            margin-right: 10px;
+        }
+        #formContainer {
+            border: 2px solid #333;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>アクセス許可リスト</h1>
+    <div id="formContainer">
+        
+        <form id="addForm">
+            URL: <input type="text" id="url" required placeholder="https://example.com"><br>
+            アクセス許可する曜日:
+            <label><input type="checkbox" name="weekday" value="0">日</label>
+            <label><input type="checkbox" name="weekday" value="1">月</label>
+            <label><input type="checkbox" name="weekday" value="2">火</label>
+            <label><input type="checkbox" name="weekday" value="3">水</label>
+            <label><input type="checkbox" name="weekday" value="4">木</label>
+            <label><input type="checkbox" name="weekday" value="5">金</label>
+            <label><input type="checkbox" name="weekday" value="6">土</label><br>
+            アクセス許可 開始時刻: <input type="time" id="start" required>
+            アクセス許可 終了時刻: <input type="time" id="end" required>
+            <input type="hidden" id="editIndex" value="-1">
+            <button type="submit" id="saveBtn">追加</button>
+            <button type="button" id="cancelEditBtn" style="display:none;">編集キャンセル</button>
+        </form>
+    </div>
+    <ul id="ruleList"></ul>
+    <script src="options.js"></script>
+</body>
+
+</html>
